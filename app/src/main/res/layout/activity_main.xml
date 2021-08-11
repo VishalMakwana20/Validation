@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.MainActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sarvadhi.validation.viewmodels.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:text="@={viewModel.username}" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/password"
+            android:inputType="text"
+            android:text="@={viewModel.password}" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:text="@={viewModel.email}" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etZipCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/zipcode"
+            android:inputType="number"
+            android:text="@={viewModel.zipcode}" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:text="@={viewModel.phoneNumber}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()-> viewModel.onSubmitClick()}"
+            android:text="@string/submit" />
+    </LinearLayout>
+
+</layout>
