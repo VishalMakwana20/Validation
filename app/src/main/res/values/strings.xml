@@ -6,4 +6,17 @@
     <string name="username">Username</string>
     <string name="zipcode">Zipcode</string>
     <string name="phone">Phone Number</string>
+    <string name="input_email_wrong">Invalid Email</string>
+    <string name="input_password_length">Password minimum length 8 is required</string>
+    <string name="input_password_uppercase">password must contain 1 uppercase letter</string>
+    <string name="input_password_lowercase">password must contain 1 lowercase letter</string>
+    <string name="input_password_number">password must contain 1 number</string>
+    <string name="input_phone_length">Phone length  must be 10</string>
+    <string name="input_postal_length">Invalid zip code</string>
+    <string name="username_length_invalid">Username length invalid</string>
+    <string name="username_empty">Username empty</string>
+    <string name="pass_empty">Password empty</string>
+    <string name="email_empty">Email empty</string>
+    <string name="zip_empty">Zip Empty</string>
+    <string name="phone_empty">Phone Empty</string>
 </resources>
