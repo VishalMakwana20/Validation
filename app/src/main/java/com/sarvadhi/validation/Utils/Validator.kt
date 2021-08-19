@@ -1,6 +1,5 @@
 import android.util.Patterns
 import com.sarvadhi.validation.R
-import com.sarvadhi.validation.Utils.Global
 import java.util.regex.Pattern
 
 /**
@@ -41,7 +40,8 @@ object Validator {
 
     private val regexEmail = Patterns.EMAIL_ADDRESS
 
-    private var isMissingRequiredFields: Boolean = false
+    private var MIN_LENGTH = 5
+    private var MAX_LENGTH = 10
 
     /**
      * Validation starts here. Always call prepare() after calling retrieveErrorList().
@@ -49,11 +49,10 @@ object Validator {
      */
     fun prepare(): Validator {
         workingErrorList = mutableListOf()
-        isMissingRequiredFields = false
         return this
     }
 
-    fun checkEmpty(str: String?): Boolean {
+    private fun checkEmpty(str: String?): Boolean {
         if (str == null)
             return true
         else if (str.trim().isEmpty())
@@ -95,7 +94,7 @@ object Validator {
 
     fun checkUserName(str: String?): Validator {
         if (checkEmpty(str)) workingErrorList!!.add(InputError.EMPTY_USERNAME)
-        else if (str!!.trim().length > Global.MAX_LENGTH || str.trim().length < Global.MIN_LENGTH)
+        else if (str!!.trim().length > MAX_LENGTH || str.trim().length < MIN_LENGTH)
             workingErrorList!!.add(InputError.USERNAME_LENGTH)
         return this
     }
@@ -115,6 +114,12 @@ object Validator {
         return this
     }
 
+    fun updateMinMaxLength(minLength: Int, maxLength: Int): Validator {
+        MIN_LENGTH = minLength
+        MAX_LENGTH = maxLength
+        return this
+    }
+
     private fun retrieveErrorList(): List<InputError> {
         val errorList: MutableList<InputError> = workingErrorList ?: mutableListOf()
         workingErrorList = null
@@ -126,5 +131,6 @@ object Validator {
         if (errors.isEmpty()) onSuccess()
         else onError(errors)
     }
+
 
 }
